@@ -1,0 +1,531 @@
+/* --- Variables de Diseño y Paleta de Colores --- */
+:root {
+    --color-primario: #2c3e50; /* Azul oscuro profesional */
+    --color-secundario: #f1f8fc; /* Azul muy claro cálido para fondos */
+    --color-acento: #ff6b6b; /* Rojo suave/naranja del folleto para acentos */
+    --color-texto: #57606f; /* Gris suave para textos largos */
+    --color-blanco: #ffffff;
+    --color-gris-claro: #f5f6fa;
+    --color-sombras: rgba(0, 0, 0, 0.08);
+
+    --fuente-titulos: 'Nunito', sans-serif;
+    --fuente-texto: 'Roboto', sans-serif;
+    
+    --radio-border: 12px;
+    --transicion-suave: all 0.3s ease;
+}
+
+/* --- Estilos Globales (Base) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-texto);
+    line-height: 1.8;
+    background-color: var(--color-blanco);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    font-weight: 800;
+}
+
+h2 { font-size: 2.8rem; margin-bottom: 20px; }
+h3 { font-size: 1.6rem; margin-bottom: 10px; }
+p { font-size: 1.15rem; margin-bottom: 1.2em; font-weight: 300; }
+ul { list-style: none; }
+
+.color-acento { color: var(--color-acento); }
+
+/* --- Layout Contenedores y Grillas --- */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.section-padded {
+    padding: 100px 0;
+}
+
+.section-accent {
+    background-color: var(--color-gris-claro);
+}
+
+.grid-2, .grid-4 {
+    display: grid;
+    gap: 40px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); align-items: center; }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* --- Elementos de UI Comunes --- */
+.subheader {
+    display: inline-block;
+    color: var(--color-acento);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-acento);
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radio-border);
+    box-shadow: 5px 5px 20px var(--color-sombras);
+    object-fit: cover;
+}
+
+/* --- Botones --- */
+.btn-hero {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--fuente-titulos);
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transicion-suave);
+    color: var(--color-blanco);
+    background-color: var(--color-acento);
+}
+
+.btn-hero:hover {
+    background-color: #ff4757;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* --- Header & Navegación --- */
+header {
+    background-color: var(--color-blanco);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px var(--color-sombras);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logo-icon {
+    font-size: 2rem;
+    color: var(--color-acento);
+}
+
+header .logo {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+header a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-primario);
+    transition: var(--transicion-suave);
+}
+
+header a:hover {
+    color: var(--color-acento);
+}
+
+header .btn-cta-nav {
+    background-color: var(--color-gris-claro);
+    color: var(--color-primario);
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+header .btn-cta-nav:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* --- Sección Hero --- */
+#hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px; /* Offset por header fijo */
+    background-image: 
+        linear-gradient(rgba(44, 62, 80, 0.75), rgba(44, 62, 80, 0.85)),
+        url("https://i.makeagif.com/media/2-22-2021/FiNxTE.gif");
+        background-size: cover;
+    background-position: center;
+}
+
+#hero h2 {
+    color: var(--color-blanco);
+    font-size: 3.5rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+#hero p {
+    color: #f1f2f6;
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* --- Sección Servicios (Tarjetas) --- */
+#servicios .carta {
+    background-color: var(--color-blanco);
+    padding: 40px 30px;
+    border-radius: var(--radio-border);
+    text-align: center;
+    transition: var(--transicion-suave);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    position: relative;
+    top: 0;
+    
+    /* Nuevas reglas para alinear el botón abajo */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+#servicios .carta:hover {
+    top: -10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+#servicios .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-secundario);
+    border-radius: 50%;
+    margin: 0 auto 25px; /* Centrado horizontal */
+}
+
+#servicios .carta i {
+    font-size: 2.2rem;
+    color: var(--color-acento);
+}
+
+#servicios .carta p {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Esto empuja el botón hacia abajo */
+}
+
+/* Estilo específico para el botón de la tarjeta */
+.btn-carta {
+    text-decoration: none;
+    color: var(--color-acento);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border: 2px solid var(--color-acento);
+    border-radius: 50px;
+    transition: var(--transicion-suave);
+    align-self: center; /* Centra el botón */
+}
+
+.btn-carta:hover {
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+}
+
+/* --- Sección Horarios --- *//* --- Mejora Sección Horarios --- */
+.text-center-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-description {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* Tarjeta Base */
+.horario-card {
+    background: var(--color-blanco);
+    border-radius: var(--radio-border);
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px var(--color-sombras);
+    transition: var(--transicion-suave);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Tarjeta Principal (Jornada Completa) */
+.horario-card.principal {
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fbff 100%);
+    border-top: 5px solid var(--color-acento);
+}
+
+.card-badge {
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    background: var(--color-acento);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--color-acento);
+    margin-bottom: 20px;
+}
+
+.hour-display {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-primario);
+    margin: 15px 0;
+}
+
+.time-tag {
+    display: inline-block;
+    background: var(--color-secundario);
+    color: var(--color-primario);
+    padding: 4px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Medias Jornadas */
+.medias-jornadas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.horario-card.morning, .horario-card.afternoon {
+    padding: 25px;
+}
+
+.card-content-inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-content-inline i {
+    font-size: 2rem;
+    color: var(--color-primario);
+    opacity: 0.6;
+}
+
+.hour-display-small {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+/* Caja de Valores Inferior */
+.valores-box-modern {
+    margin-top: 50px;
+    background: var(--color-primario);
+    color: white;
+    padding: 25px 40px;
+    border-radius: var(--radio-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.valores-box-modern p { margin: 0; color: white; flex-grow: 1; }
+
+.btn-text {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 2px;
+}
+
+/* Responsividad */
+@media (max-width: 850px) {
+    .horarios-grid { grid-template-columns: 1fr; }
+    .valores-box-modern { flex-direction: column; text-align: center; }
+}
+
+/* --- Sección Matrícula (Checklist) --- */
+#matricula .checklist li {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#matricula .checklist i {
+    font-size: 1.6rem;
+    color: var(--color-acento);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-primario);
+    color: #f1f2f6;
+    padding: 80px 0 30px;
+    font-weight: 300;
+}
+
+footer h1, footer h2, footer h3, footer p, footer a {
+    color: #f1f2f6;
+}
+
+footer .grid-2 {
+    gap: 60px;
+    align-items: flex-start;
+}
+
+footer .footer-logo {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+footer .contact-info p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+footer .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+footer .contact-link:hover {
+    color: var(--color-acento);
+}
+
+footer .social-links p {
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+footer .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: var(--transicion-suave);
+}
+
+footer .social-links a:hover {
+    color: var(--color-acento);
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+}
+
+footer .copyright p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* --- Media Queries (Responsividad - Pantallas Grandes) --- */
+@media (min-width: 1400px) {
+    h2 { font-size: 3.2rem; }
+    #hero h2 { font-size: 4rem; }
+}
+
+/* --- Media Queries (Responsividad - Tablets y Móviles Grandes) --- */
+@media (max-width: 1024px) {
+    h2 { font-size: 2.4rem; }
+    
+    #hero h2 { font-size: 3rem; }
+    #hero p { font-size: 1.2rem; }
+
+    .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 850px) {
+    h2 { font-size: 2rem; }
+
+    header nav { display: none; } /* Ocultar menú en móvil - requiere menú hamburguesa JS si se desea */
+    
+    #hero { height: auto; padding: 100px 0; }
+    #hero h2 { font-size: 2.4rem; }
+    
+    .section-padded { padding: 60px 0; }
+    .grid-2 { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    
+    .img-container { order: -1; } /* Imagen arriba en móviles */
+    
+    #servicios .grid-4 { grid-template-columns: 1fr; }
+    
+    #horarios .horario-destacado i { font-size: 3rem; }
+    #horarios .horario-destacado h3 { font-size: 1.5rem; }
+    #horarios .horario-destacado p { font-size: 1.1rem; }
+    
+    #matricula .checklist li { justify-content: center; }
+}
+
+/* --- Media Queries (Responsividad - Móviles Pequeños) --- */
+@media (max-width: 480px) {
+    h2 { font-size: 1.8rem; }
+    
+    header .logo { font-size: 1.8rem; }
+    header .logo-icon { font-size: 1.5rem; }
+    
+    #hero h2 { font-size: 1.8rem; }
+    #hero p { font-size: 1.1rem; }
+}
