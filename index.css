@@ -1,9 +1,9 @@
-/* --- Variables de Diseño y Paleta de Colores --- */
+
 :root {
-    --color-primario: #2c3e50; /* Azul oscuro profesional */
-    --color-secundario: #f1f8fc; /* Azul muy claro cálido para fondos */
-    --color-acento: #ff6b6b; /* Rojo suave/naranja del folleto para acentos */
-    --color-texto: #57606f; /* Gris suave para textos largos */
+    --color-primario: #2c3e50; 
+    --color-secundario: #f1f8fc; 
+    --color-acento: #ff6b6b; 
+    --color-texto: #57606f; 
     --color-blanco: #ffffff;
     --color-gris-claro: #f5f6fa;
     --color-sombras: rgba(0, 0, 0, 0.08);
@@ -15,7 +15,7 @@
     --transicion-suave: all 0.3s ease;
 }
 
-/* --- Estilos Globales (Base) --- */
+/* --- Estilos Globales --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -178,7 +178,7 @@ header .btn-cta-nav:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 100px; /* Offset por header fijo */
+    margin-top: 100px; 
     background-image: 
         linear-gradient(rgba(44, 62, 80, 0.75), rgba(44, 62, 80, 0.85)),
         url("https://i.makeagif.com/media/2-22-2021/FiNxTE.gif");
@@ -230,7 +230,7 @@ header .btn-cta-nav:hover {
     height: 80px;
     background-color: var(--color-secundario);
     border-radius: 50%;
-    margin: 0 auto 25px; /* Centrado horizontal */
+    margin: 0 auto 25px; 
 }
 
 #servicios .carta i {
@@ -241,7 +241,7 @@ header .btn-cta-nav:hover {
 #servicios .carta p {
     font-size: 1.05rem;
     margin-bottom: 25px;
-    flex-grow: 1; /* Esto empuja el botón hacia abajo */
+    flex-grow: 1; 
 }
 
 /* Estilo específico para el botón de la tarjeta */
@@ -254,7 +254,7 @@ header .btn-cta-nav:hover {
     border: 2px solid var(--color-acento);
     border-radius: 50px;
     transition: var(--transicion-suave);
-    align-self: center; /* Centra el botón */
+    align-self: center; 
 }
 
 .btn-carta:hover {
@@ -500,7 +500,7 @@ footer .copyright p {
 @media (max-width: 850px) {
     h2 { font-size: 2rem; }
 
-    header nav { display: none; } /* Ocultar menú en móvil - requiere menú hamburguesa JS si se desea */
+    header nav { display: none; } 
     
     #hero { height: auto; padding: 100px 0; }
     #hero h2 { font-size: 2.4rem; }
@@ -508,7 +508,7 @@ footer .copyright p {
     .section-padded { padding: 60px 0; }
     .grid-2 { grid-template-columns: 1fr; gap: 30px; text-align: center; }
     
-    .img-container { order: -1; } /* Imagen arriba en móviles */
+    .img-container { order: -1; } 
     
     #servicios .grid-4 { grid-template-columns: 1fr; }
     
